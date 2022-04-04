@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="luffy-container">
+        {% for row in record_list %}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {{ row.note }}
+                    <div style="float: right">
+                        <i class="fa fa-user" aria-hidden="true">{{ row.consultant.name }}</i>
+                        <i class="fa fa-clock-o" aria-hidden="true">{{ row.date }}</i>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="luffy-container">
+        <form method="post">
+            {% csrf_token %}
+            {{formset.management_form}}
+            <div style="margin:5px 0">
+                <input type="submit" class="btn btn-success" >
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>考勤</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for form in formset %}
+{#                    formset 默认生成下拉框或input    form.instance可以直接取数据库的数据生成文本#}
+                <tr>
+                    {{ form.id }}
+{#                    from.id生成一个隐藏的Input框，里面存放对应的id，可以将数据提交到数据库对应的表项#}
+                    <td>{{ form.instance.student }}</td>
+                    <td>{{ form.record }}<span style="color: red">{{ form.record.errors.0 }}</span></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </div>
+{% endblock %}
