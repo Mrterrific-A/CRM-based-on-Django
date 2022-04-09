@@ -532,18 +532,22 @@ class StarkHandler(object):
 
     @property
     def get_list_url_name(self):
+        """自动生成别名"""
         return self.get_url_name('list')
 
     @property
     def get_add_url_name(self):
+        """自动生成别名"""
         return self.get_url_name('add')
 
     @property
     def get_change_url_name(self):
+        """自动生成别名"""
         return self.get_url_name('change')
 
     @property
     def get_delete_url_name(self):
+        """自动生成别名"""
         return self.get_url_name('delete')
 
     def reverse_common_url(self, name, *args, **kwargs):
