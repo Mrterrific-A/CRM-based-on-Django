@@ -47,6 +47,7 @@
         # 顾客的顾问id等于当前用户的id  防止别的顾问来访问你的信息
         return self.model_class.objects.filter(customer_id=customer_id, 
                                                 customer__consultant_id=current_user_id)
+                                                
 4. 对增加、删除页面的自定制，可自定制ModelForm并继承StarkModelForm
     from stark.service.v1 import StarkModelForm
     class ConsultRecordModelForm(StarkModelForm):
@@ -118,3 +119,5 @@ search_group = {
 9. 反向生成
 反向生成有两种方法 StarkHandler的reverse_common_url，这种反向生成方法如果原来url携带有参数会保留参数
 若不想保留，则用from django.urls import reverse
+
+10 排序  order_list = ['-id', 'confirm_status'] 可根据字段进行排序
