@@ -106,7 +106,7 @@
     action_list = [multi_delete, ]
     
 7.模糊搜索
-search_list = [字段名,] 可通过字段的内容对记录进行模糊搜索
+search_list = [字段名,] 可通过字段的内容对记录进行精确查找搜索，search_list = [字段名__contains,] 可进行模糊查找
 
 8.组合搜索
 from stark.service.v1 import Option
